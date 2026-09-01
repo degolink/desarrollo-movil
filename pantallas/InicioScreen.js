@@ -1,0 +1,22 @@
+import React, { useContext } from 'react';
+import { View, Text, Button } from 'react-native';
+import { AuthContexto } from '../contexto/AuthContexto';
+
+const InicioScreen = () => {
+  const { usuario, cerrarSesion } = useContext(AuthContexto);
+
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      {usuario ? (
+        <>
+          <Text>¡Bienvenido a MiBiblioteca, {usuario.nombre}!</Text>
+          <Button title="Cerrar sesión" onPress={cerrarSesion} />
+        </>
+      ) : (
+        <Text>No has iniciado sesión</Text>
+      )}
+    </View>
+  );
+};
+
+export default InicioScreen;
